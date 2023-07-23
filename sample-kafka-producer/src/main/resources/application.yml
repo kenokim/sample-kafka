@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: local
+
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
+        format_sql: false
+        show_sql: false
+
+    database: mysql
+    hibernate:
+      ddl-auto: create
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/sample-kafka-producer
+    username: root
+    password: 1234
+
+  kafka:
+    producer:
+      acks: all
+
+server:
+  port: 8990
+
+logging:
+  level:
+    root: info
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
