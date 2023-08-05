@@ -1,7 +1,10 @@
 package com.example;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.kafka.clients.producer.Callback;
+import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,7 +20,7 @@ import java.util.concurrent.CompletableFuture;
 @RequiredArgsConstructor
 public class SampleProducer {
     private final SampleEventRepository sampleEventRepository;
-    private final KafkaTemplate<String, String> template;
+    private final KafkaTemplate<String, Object> template;
     private final String topicName = "kafka-sample-topic";
 
     @Transactional

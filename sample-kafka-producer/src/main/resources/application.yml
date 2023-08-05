@@ -22,6 +22,7 @@ spring:
   kafka:
     producer:
       acks: all
+      value-serializer: 'org.springframework.kafka.support.serializer.JsonSerializer'
 
 server:
   port: 8990
